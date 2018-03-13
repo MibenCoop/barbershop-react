@@ -2,5 +2,8 @@ import api from '../api'
 import { userLoggedIn } from './auth';
 
 
-export const signup = user => dispatch => 
-        api.user.signup(user).then(user => user.dispatch(userLoggedIn(user)))
+export const signup = data => dispatch => 
+        api.user.signup(data).then(user => {
+        	localStorage.barbershopJWT = user.token;
+        	dispatch(userLoggedIn(user));
+        })

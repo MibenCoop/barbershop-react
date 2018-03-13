@@ -10,12 +10,12 @@ const App = ({location}) => {
       <div>
         <Route location={location} path="/" exact component={HomePage}> HomePage </Route>
         <Route location={location} path="/login" exact component={LoginPage}>Login</Route>
-        <Route location={location} path="/signup" exact component={SignupPage} />
+        <Route location={location} path="/signup" exact component={SignupPage}> Signup </Route>
       </div>
     );
 }
 
-App.PropTypes = {
+App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired
   }).isRequired

@@ -12,7 +12,6 @@ export default class LoginForm extends Component {
     };
     onSubmit = (event) => {
         // TODO Обработка ошибок        
-        console.log('this.state.data',this.state.data);
         event.preventDefault();
         this.props.submit(this.state.data);
     }
@@ -26,7 +25,7 @@ export default class LoginForm extends Component {
         const { data, errors } = this.state;
         return (
             <form onSubmit={this.onSubmit}>
-                <label for="email">
+                <label htmlFor="email">
                     Email:
                 </label>
                 <input 
@@ -35,7 +34,7 @@ export default class LoginForm extends Component {
                     type="email" name="email" 
                     value={data.login}
                 /><br/>
-                <label for="password">
+                <label htmlFor="password">
                     Password:
                 </label>
                 <input 

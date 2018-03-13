@@ -12,13 +12,11 @@ export default class Signup extends Component {
     };
     onSubmit = (event) => {
         // TODO Обработка ошибок
-        console.log('this.state.data',this.state.data);        
         event.preventDefault();
         this.props.submit(this.state.data);
     }
 
     onChange = (e) => {
-            console.log('...this.state', ...this.state);
             this.setState({ 
                 ...this.state,
                 data: {...this.state.data, [e.target.name]: e.target.value} 
@@ -28,7 +26,7 @@ export default class Signup extends Component {
         const { data, errors } = this.state;
         return (
             <form onSubmit={this.onSubmit}>
-                <label for="email">
+                <label htmlFor="email">
                     Email:
                 </label>
                 <input 
@@ -37,7 +35,7 @@ export default class Signup extends Component {
                     type="email" name="email" 
                     value={data.login}
                 /><br/>
-                <label for="password">
+                <label htmlFor="password">
                     Password:
                 </label>
                 <input 
