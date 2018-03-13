@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 
-export default class LoginForm extends Component {
+export default class Signup extends Component {
     state = {
         data: {
             email: "",
@@ -11,17 +11,19 @@ export default class LoginForm extends Component {
         errors: {},
     };
     onSubmit = (event) => {
-        // TODO Обработка ошибок        
-        console.log('this.state.data',this.state.data);
+        // TODO Обработка ошибок
+        console.log('this.state.data',this.state.data);        
         event.preventDefault();
         this.props.submit(this.state.data);
     }
 
-    onChange = e => 
+    onChange = (e) => {
+            console.log('...this.state', ...this.state);
             this.setState({ 
+                ...this.state,
                 data: {...this.state.data, [e.target.name]: e.target.value} 
             });
-            
+    }
     render() {
         const { data, errors } = this.state;
         return (
@@ -51,6 +53,6 @@ export default class LoginForm extends Component {
     }
 };
 
-LoginForm.propTypes = {
+Signup.propTypes = {
     submit: PropTypes.func.isRequired
 }

@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import HomePage  from "./components/pages/HomePage";
 import LoginPage  from "./components/pages/LoginPage";
 import SignupPage  from "./components/pages/SignupPage";
+import PropTypes from 'prop-types';
 
-
-class App extends Component {
-  render() {
+const App = ({location}) => {
     return (
-      <BrowserRouter>
-        <div>
-          {/* <Link to="/">HomePage</Link> */}
-
-          <Route path="/" exact component={HomePage}> HomePage </Route>
-          <Route path="/login" exact component={LoginPage}>Login</Route>
-          <Route path="/signUp" exact component={SignupPage} />
-        </div>
-      </BrowserRouter>
+      <div>
+        <Route location={location} path="/" exact component={HomePage}> HomePage </Route>
+        <Route location={location} path="/login" exact component={LoginPage}>Login</Route>
+        <Route location={location} path="/signup" exact component={SignupPage} />
+      </div>
     );
-  }
 }
+
+App.PropTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  }).isRequired
+}
+
 
 export default App;
