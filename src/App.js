@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
 import { Route, Link } from "react-router-dom";
 import HomePage  from "./components/pages/HomePage";
+import { connect } from 'react-redux';
 import LoginPage  from "./components/pages/LoginPage";
 import SignupPage  from "./components/pages/SignupPage";
 import PropTypes from 'prop-types';
+import { userLoggedIn } from './actions/auth.js'
 
-const App = ({location}) => {
+class App extends Component {
+  componentWillMount() { 
+    const { store } = this.context;
+    console.log("!!!!!!!!!!!!!!!!!!");
+    console.log('anser', !!localStorage.barbershopJWT);
+    if(!!localStorage.barbershopJWT) {
+        console.log("???????????");
+        const user = { token: localStorage.barbershopJWT};
+        store.dispatch(userLoggedIn(user));
+    }
+  }
+  componentWillUnmount() {
+    console.log('unmount');
+  }
+  render() {
+    const { location } = this.props;
     return (
       <div>
         <Route location={location} path="/" exact component={HomePage}> HomePage </Route>
@@ -13,12 +30,17 @@ const App = ({location}) => {
         <Route location={location} path="/signup" exact component={SignupPage}> Signup </Route>
       </div>
     );
+  }
 }
 
 App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired
   }).isRequired
+}
+
+App.contextTypes = {
+  store: PropTypes.object.isRequired
 }
 
 

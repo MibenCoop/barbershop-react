@@ -11,4 +11,9 @@ export const userLoggedOut = () => ({
 export const login = credentials => dispatch => api.user.login(credentials).then(user => {
         localStorage.barbershopJWT = user.token;
         dispatch(userLoggedIn(user));
-    });
+});
+
+export const logout = () => dispatch =>  {
+    localStorage.removeItem("barbershopJWT");
+    dispatch(userLoggedOut());
+};

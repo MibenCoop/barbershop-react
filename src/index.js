@@ -18,10 +18,6 @@ const store = createStore(
     composeWithDevTools(applyMiddleware(thunk))
 )
 
-if(localStorage.barbeshopJWT) {
-    const user = { token: localStorage.barbeshopJWT};
-    store.dispatch(userLoggedIn(user));
-}
 
 ReactDOM.render( 
     <BrowserRouter>
