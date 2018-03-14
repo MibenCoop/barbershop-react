@@ -3,7 +3,6 @@ import LoginForm from '../forms/LoginForm'
 import { connect } from 'react-redux'
 import { login } from '../../actions/auth'
 import PropTypes from 'prop-types';
-import api from '../../api'
 
 
 class LoginPage extends Component {

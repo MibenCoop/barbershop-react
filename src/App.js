@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import HomePage  from "./components/pages/HomePage";
-import { connect } from 'react-redux';
 import LoginPage  from "./components/pages/LoginPage";
 import SignupPage  from "./components/pages/SignupPage";
 import PropTypes from 'prop-types';
@@ -10,10 +9,7 @@ import { userLoggedIn } from './actions/auth.js'
 class App extends Component {
   componentWillMount() { 
     const { store } = this.context;
-    console.log("!!!!!!!!!!!!!!!!!!");
-    console.log('anser', !!localStorage.barbershopJWT);
     if(!!localStorage.barbershopJWT) {
-        console.log("???????????");
         const user = { token: localStorage.barbershopJWT};
         store.dispatch(userLoggedIn(user));
     }

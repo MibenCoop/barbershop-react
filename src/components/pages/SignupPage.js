@@ -3,7 +3,6 @@ import SignupForm from '../forms/SignupForm'
 import { connect } from 'react-redux'
 import { signup } from '../../actions/signup'
 import PropTypes from 'prop-types';
-import api from '../../api'
 
 
 class SignupPage extends Component {
