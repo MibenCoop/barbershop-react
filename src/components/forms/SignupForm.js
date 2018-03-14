@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import validator from 'validator'
-import InlineMessage from '../messages/InlineMessage.js'
+import InlineError from '../messages/InlineError.js'
+import BlockError from '../messages/BlockError.js'
+
 export default class Signup extends Component {
     state = {
         data: {
@@ -14,13 +16,10 @@ export default class Signup extends Component {
     onSubmit = (event) => {
         event.preventDefault();
         const errors = this.validate(this.state.data);
-        console.log('erros', errors);
         this.setState({ errors });
         if ( Object.keys(errors).length === 0) {
             this.props.submit(this.state.data)
-                      .catch(err => 
-                        this.state({errors: err.respone.data.errors})
-                    );
+                      .catch(err => this.setState({errors: err.response.data.errors}));
         }
     }
 
@@ -34,9 +33,8 @@ export default class Signup extends Component {
     validate = (data) => {
         const errors = {};
         if (!validator.isEmail(data.email)) errors.email = "Invalid email";
-        if (!data.username) errors.username = "Blank usernames";
-        if (!data.password) errors.password = "Blank password";
-        console.log('dataValid');
+        if (validator.isEmpty(data.username)) errors.username = "Blank usernames";
+        if (validator.isEmpty(data.password)) errors.password = "Blank password";
         return errors;
     }
 
@@ -53,7 +51,7 @@ export default class Signup extends Component {
                     type="email" name="email" 
                     value={data.login}
                 />
-                <InlineMessage error={errors.email}/>
+                <InlineError error={errors.email}/>
                 <br/>
                 <label htmlFor="username">
                     Username:
@@ -64,7 +62,7 @@ export default class Signup extends Component {
                     type="username" name="username" 
                     value={data.login}
                 />
-                <InlineMessage error={errors.username}/>
+                <InlineError error={errors.username}/>
                 <br/>
                 <label htmlFor="password">
                     Password:
@@ -76,9 +74,10 @@ export default class Signup extends Component {
                     name="password" 
                     value={data.password}
                 />
-                <InlineMessage error={errors.password}/>
+                <InlineError error={errors.password}/>
                 <br/>
                 <button>Войти</button>
+                <BlockError error={errors.global}/>
             </form>        
         );
     }
