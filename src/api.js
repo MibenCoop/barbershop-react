@@ -9,6 +9,8 @@ export default {
   },
   tickets: {
   	bookTickets: data => 
-  		axios.post('/api/bookTickets', {data}).then(res => console.log('res', res))
+  		axios.post('/api/tickets', {data}).then(res => res.data.tickets),
+    getTickets: () => 
+      axios.get('api/tickets').then(res => console.log('res', res))
   }
 };

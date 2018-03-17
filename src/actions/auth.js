@@ -9,6 +9,9 @@ export const userLoggedOut = () => ({
     type: "USER_LOGGED_OUT"
 });
 
+export const getUserCredentials = () => ({
+    type: "GET_USER_CREDENTIALS"
+});
 export const login = credentials => dispatch => api.user.login(credentials).then(user => {
   localStorage.barbershopJWT = user.token;
   setAuthHeader(user.token);

@@ -6,6 +6,13 @@ import { Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 class DashboardPage extends Component {
+    componentWillMount() { 
+        console.log()
+        console.log('mount');
+    }
+    componentWillUnmount() {
+        console.log('unmount');
+    }
     render() {
         return (
             <div> 
