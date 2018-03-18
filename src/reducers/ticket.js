@@ -7,11 +7,21 @@ export default function ticket(state = [], action = {}) {
                 date: action.ticket.date,
                 userId: action.ticket.userId
             }];
-        case "UNBOOK_TICKET":
-            return {};
+        case "DELETE_TICKET":
+            console.log('state', action)
+            let newState = state.slice();
+            console.log('newState', newState);
+            console.log('actionid', action.id)
+            let indexToRemove = newState.findIndex(obj => obj._id === action.id);
+            console.log('indexToRemove', indexToRemove);
+            newState.splice(indexToRemove , 1);
+            return newState;
         case "GET_TICKETS":
-            console.log('reducer', action)
-            return action.tickets;
+            if ( action.tickets.n !== 0) {        
+                return action.tickets;
+            } else {
+                return [];
+            }
         default:
             return state;
     }

@@ -2,17 +2,24 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import TicketItem from '../components/TicketItem'
+import { deleteTicket } from '../actions/bookTickets.js'
 
-const TicketsListPage = ({history, tickets}) => {
-
-    const ticketItems = tickets.map(ticket => (
-        <TicketItem key={String(ticket._id)} value={ticket}/>)
-    );
-    return (
-        <ul>
-            {ticketItems}
-        </ul>
-    );
+class TicketsListPage extends Component{
+    render() {
+        const { tickets, deleteTicket } = this.props;
+        const ticketItems = tickets.map(ticket => (
+            <TicketItem 
+                key={String(ticket._id)} 
+                value={ticket} 
+                deleteItem = {deleteTicket}
+            />)
+        );
+        return (
+            <ul>
+                {ticketItems}
+            </ul>
+        );
+    }
 }
  
 TicketsListPage.propTypes = {
@@ -35,4 +42,4 @@ const mapStateToProps = state => ({
 
 
 
-export default connect(mapStateToProps, null)(TicketsListPage);
+export default connect(mapStateToProps, {deleteTicket})(TicketsListPage);
