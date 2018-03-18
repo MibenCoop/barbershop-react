@@ -9,6 +9,9 @@ export default function ticket(state = [], action = {}) {
             }];
         case "UNBOOK_TICKET":
             return {};
+        case "GET_TICKETS":
+            console.log('reducer', action)
+            return action.tickets;
         default:
             return state;
     }

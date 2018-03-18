@@ -1,22 +1,15 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-// import { login } from '../../actions/auth'
 import PropTypes from 'prop-types'
-import TicketItemPage from './TicketItemPage'
+import TicketItem from '../components/TicketItem'
 
 const TicketsListPage = ({history, tickets}) => {
-    // let tickets = {}; 
-    // const { store } = this.context;
-    // store.subscribe(() => {
-    //   tickets = store.getState().ticket;
-    //   console.log('sub', store.getState().ticket)
-    // })
-    const ticketItems = tickets.map(ticket => {
-        <TicketItemPage key={ticket._id} value={ticket.date}/>
-    })
+
+    const ticketItems = tickets.map(ticket => (
+        <TicketItem key={String(ticket._id)} value={ticket}/>)
+    );
     return (
         <ul>
-            1
             {ticketItems}
         </ul>
     );
@@ -28,10 +21,10 @@ TicketsListPage.propTypes = {
     }).isRequired,
     tickets: PropTypes.arrayOf(
         PropTypes.shape({
-          _id: PropTypes.number.isRequired,
+          _id: PropTypes.string.isRequired,
           time: PropTypes.string.isRequired,
           date: PropTypes.string.isRequired,
-          userId: PropTypes.object.isRequired
+          userId: PropTypes.string.isRequired
         }).isRequired
     ).isRequired,
 }
