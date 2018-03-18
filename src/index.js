@@ -21,7 +21,6 @@ const store = createStore(
 
 if (localStorage.barbershopJWT) {
     const payload = decode(localStorage.barbershopJWT);
-  	console.log('payload', payload);
     const user = { 
     	token: localStorage.barbershopJWT,
     	email: payload.email

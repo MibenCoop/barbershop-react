@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 class HomePage extends Component {
     render() {
-        const {isAuthenticated } = this.props;
+        const {isAuthenticated, getUserCredentials, logout } = this.props;
         const { store } = this.context;
         const user = {}; 
         store.subscribe(() => {
@@ -44,6 +44,7 @@ const mapStateToProps = (state) => {
 HomePage.propTypes = {
   getUserCredentials: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
+  getUserCredentials: PropTypes.func.isRequired,
 }
 HomePage.contextTypes = {
   store: PropTypes.object.isRequired

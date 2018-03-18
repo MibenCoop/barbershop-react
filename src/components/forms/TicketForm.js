@@ -15,16 +15,13 @@ export default class TicketForm extends Component {
         event.preventDefault();
         const errors = this.validate(this.state.data);
         this.setState({errors});
-        console.log('submit workss');
         if ( Object.keys(errors).length === 0  ) {
-            console.log('.data', this.state.data);
             this.props.submit(this.state.data)
                     .catch(err => this.setState({errors: err.response.data.errors}));
         }
     }
 
     onChange = (e) => {
-        console.log('evemtTicketForm', e.target.value);
         this.setState({
             data: { ...this.state.data, [e.target.name]: e.target.value}
         })
@@ -65,5 +62,5 @@ export default class TicketForm extends Component {
 }
 
 TicketForm.propTypes = {
-    submit: PropTypes.func.isRequared
+    submit: PropTypes.func.isRequired
 }

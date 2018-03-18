@@ -6,11 +6,8 @@ import { bookTicket } from '../../actions/bookTickets'
 import PropTypes from 'prop-types'
 
 class BookTicketPage extends Component {
-    submit = data => 
-        this.props.bookTicket(data).then(() => {
-            console.log('test!');
-            this.props.history.push('/dashboard');
-        });
+    submit = data =>
+        this.props.bookTicket(data).then(() => this.props.history.push('/dashboard'));
 
     render() {
         return (

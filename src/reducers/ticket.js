@@ -1,8 +1,12 @@
-export default function ticket(state = {}, action = {}) {
+export default function ticket(state = [], action = {}) {
     switch(action.type) {
         case "BOOKED_TICKET":
-        		console.log("BOOKEDTICKET", action.ticket);
-            return action.ticket;
+            return [...state, {
+                _id: action.ticket._id,
+                time: action.ticket.time,
+                date: action.ticket.date,
+                userId: action.ticket.userId
+            }];
         case "UNBOOK_TICKET":
             return {};
         default:
