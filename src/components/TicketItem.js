@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
- const TicketItem = ( props) => {
+const TicketItem = ( props) => {
  	const { value, deleteItem } = props;
  	return (
  		<li>

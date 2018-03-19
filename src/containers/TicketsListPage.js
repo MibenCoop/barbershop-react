@@ -7,7 +7,6 @@ import { deleteTicket } from '../actions/bookTickets.js'
 class TicketsListPage extends Component{
 
     renderItems(tickets, compareFunc) {
-        let filterData = null;
         const ticketItems = tickets
             .filter((ticket) => compareFunc(ticket.date, ticket.time))
             .map(ticket => {
@@ -31,7 +30,7 @@ class TicketsListPage extends Component{
         return ( +new Date(fullDate) > new Date() ) ? false : true
     }
     render() {
-        const { tickets, deleteTicket } = this.props;
+        const { tickets } = this.props;
         const ticketFutureItems = this.renderItems(tickets, this.compareTicketsData)
         const ticketPastItems = this.renderItems(tickets, this.comparePastTicketsData);
 

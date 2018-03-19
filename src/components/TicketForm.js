@@ -15,7 +15,8 @@ const TicketForm = (props) => {
                 name="date" 
                 value={ticket.date} 
                 onChange={change}
-            /><br/>
+            />
+            <InlineError error={errors.date} /><br/>
             <label htmlFor="time">
                 time:
             </label>
@@ -24,7 +25,8 @@ const TicketForm = (props) => {
                 name="time"
                 value={ticket.time}
                 onChange={change} 
-            /><br/>
+            />
+            <InlineError error={errors.time} /><br/>
             <button>Submit</button>
             <BlockError error={errors.global} />
         </form>
