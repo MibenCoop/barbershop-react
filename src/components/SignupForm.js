@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import InlineError from './messages/InlineError.js'
 import BlockError from './messages/BlockError.js'
 

@@ -18,6 +18,7 @@ class BookTicketPage extends Component {
         event.preventDefault();
         const errors = this.validate(this.state.data);
         this.setState({errors});
+        console.log('errors', errors);
         if ( Object.keys(errors).length === 0  ) {
             bookTicket(this.state.data)
                 .then(() => this.props.history.push("/dashboard"))
@@ -33,6 +34,11 @@ class BookTicketPage extends Component {
 
     validate = (data) => {
         const errors = {};
+        const fullDate = data.date + " " + data.time;
+        //TODO Maybe do more beatifull and reliable validate for date
+        if (+new Date(fullDate) < +new Date()) {
+            errors.global = "Invalid date or time";
+        }
         // if (validator.toDate(data.date) === null) console.log("data error");
         return errors;
     }
@@ -45,6 +51,7 @@ class BookTicketPage extends Component {
                     submit={this.onSubmit}
                     change={this.onChange}
                     ticket={this.state.data}
+                    errors={this.state.errors}
                 />
             </div>
         );

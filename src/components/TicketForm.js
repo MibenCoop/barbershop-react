@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import validator from 'validator'
+import React from 'react'
 import PropTypes from 'prop-types'
+import InlineError from './messages/InlineError.js'
+import BlockError from './messages/BlockError.js'
 
 const TicketForm = (props) => {
-    const { ticket, submit, change } = props;
+    const { ticket, submit, change, errors } = props;
     return(
         <form onSubmit = {submit}>
             <label htmlFor="date">
@@ -25,6 +26,7 @@ const TicketForm = (props) => {
                 onChange={change} 
             /><br/>
             <button>Submit</button>
+            <BlockError error={errors.global} />
         </form>
     );
 }

@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import React, {Component} from 'react';
+import React from 'react';
 import { logout, getUserCredentials } from '../actions/auth.js';
-import PropTypes from 'prop-types';
 
 const HomePage = (props) => {
 

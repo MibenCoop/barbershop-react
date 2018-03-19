@@ -1,23 +1,20 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
  const TicketItem = ( props) => {
- 	const { value, deleteTicket, deleteItem } = props;
+ 	const { value, deleteItem } = props;
  	return (
  		<li>
  			<span>{value.date} : {value.time}</span>
  			<button 
- 				onClick={() => deleteItem(value._id)}
+ 				onClick={() => { 
+					 deleteItem(value._id);
+					 }
+				}
  			>
  				Delete
  			</button>
  		</li>
  	);
 } 
-
-TicketItem.propTypes = {
-    history: PropTypes.shape({
-        push: PropTypes.func.isRequired
-    }).isRequired,
-}
 
 export default TicketItem;

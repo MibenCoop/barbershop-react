@@ -17,8 +17,8 @@ export const gettingTickets = tickets => ({
 export const getTickets = () => dispatch => 
 	api.tickets.getTickets().then((tickets) => dispatch(gettingTickets(tickets)))
 
-export const deleteTicket = id => dispatch =>
-	api.tickets.deleteTicket(id).then((id) => dispatch(deletedTicket(id)))
+export const deleteTicket = id => dispatch => 
+    api.tickets.deleteTicket(id).then((id) => dispatch(deletedTicket(id)))
 
 export const bookTicket = ticket => dispatch =>  
-		api.tickets.bookTickets(ticket).then(res => dispatch(bookedTicket(res)))
+	api.tickets.bookTickets(ticket).then(res => dispatch(bookedTicket(res)))

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect } from 'react-redux'
-import InlineError from '../components/messages/InlineError.js'
-import BlockError from '../components/messages/BlockError.js'
 import SignupForm from '../components/SignupForm.js'
 import validator from 'validator'
 import { signup } from '../actions/signup.js'
@@ -43,7 +41,6 @@ class SignupPage extends Component {
         return errors;
     }
     render() {
-        const { data, errors } = this.state;
         return (
             <SignupForm 
                 submit = {this.onSubmit}

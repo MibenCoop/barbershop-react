@@ -8,12 +8,8 @@ export default function ticket(state = [], action = {}) {
                 userId: action.ticket.userId
             }];
         case "DELETE_TICKET":
-            console.log('state', action)
             let newState = state.slice();
-            console.log('newState', newState);
-            console.log('actionid', action.id)
             let indexToRemove = newState.findIndex(obj => obj._id === action.id);
-            console.log('indexToRemove', indexToRemove);
             newState.splice(indexToRemove , 1);
             return newState;
         case "GET_TICKETS":

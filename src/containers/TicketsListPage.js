@@ -5,27 +5,52 @@ import TicketItem from '../components/TicketItem'
 import { deleteTicket } from '../actions/bookTickets.js'
 
 class TicketsListPage extends Component{
+
+    renderItems(tickets, compareFunc) {
+        let filterData = null;
+        const ticketItems = tickets
+            .filter((ticket) => compareFunc(ticket.date, ticket.time))
+            .map(ticket => {
+                    return (
+                        <TicketItem 
+                            key={String(ticket._id)} 
+                            value={ticket} 
+                            deleteItem = {this.props.deleteTicket}
+                        />
+                    );
+                }
+            );
+        return ticketItems;
+    }
+    compareTicketsData(date, time) {
+        let fullDate = date + " " + time;
+        return ( +new Date(fullDate) > new Date() ) ? true : false
+    }
+    comparePastTicketsData(date, time) {
+        let fullDate = date + " " + time;
+        return ( +new Date(fullDate) > new Date() ) ? false : true
+    }
     render() {
         const { tickets, deleteTicket } = this.props;
-        const ticketItems = tickets.map(ticket => (
-            <TicketItem 
-                key={String(ticket._id)} 
-                value={ticket} 
-                deleteItem = {deleteTicket}
-            />)
-        );
+        const ticketFutureItems = this.renderItems(tickets, this.compareTicketsData)
+        const ticketPastItems = this.renderItems(tickets, this.comparePastTicketsData);
+
         return (
-            <ul>
-                {ticketItems}
-            </ul>
+            <div>
+                <span>Upcoming events</span>
+                <ul>    
+                    {ticketFutureItems}
+                </ul>
+                <span>Past events</span>
+                <ul>    
+                    {ticketPastItems}
+                </ul>
+            </div>
         );
     }
 }
  
 TicketsListPage.propTypes = {
-    history: PropTypes.shape({
-        push: PropTypes.func.isRequired
-    }).isRequired,
     tickets: PropTypes.arrayOf(
         PropTypes.shape({
           _id: PropTypes.string.isRequired,
