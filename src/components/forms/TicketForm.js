@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import InlineError from './messages/InlineError.js'
-import BlockError from './messages/BlockError.js'
+import InlineError from '../messages/InlineError.js'
+import BlockError from '../messages/BlockError.js'
 
 const TicketForm = (props) => {
     const { ticket, submit, change, errors } = props;

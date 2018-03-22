@@ -1,0 +1,16 @@
+.header {
+	display: flex;
+	justify-content: flex-start;
+    background-color: rgb(255, 255, 255);
+}
+.authorization {
+    margin-left: 81%;
+}
+.login, .signup {
+    padding: 12%;
+}
+.signup, .login, .logo  {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect } from 'react-redux'
-import SignupForm from '../components/SignupForm.js'
+import SignupForm from '../components/forms/SignupForm.js'
 import validator from 'validator'
 import { signup } from '../actions/signup.js'
 

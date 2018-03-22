@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import TicketForm from '../components/TicketForm'
+import TicketForm from '../components/forms/TicketForm'
 import { connect } from 'react-redux'
 import { bookTicket } from '../actions/bookTickets'
 import PropTypes from 'prop-types'

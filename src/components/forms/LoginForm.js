@@ -1,6 +1,6 @@
 import React from 'react';
-import InlineError from './messages/InlineError.js'
-import BlockError from './messages/BlockError.js'
+import InlineError from '../messages/InlineError.js'
+import BlockError from '../messages/BlockError.js'
 
  const LoginForm = (props) => {
     const { user, change, submit, errors } = props;

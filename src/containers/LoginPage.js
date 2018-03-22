@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux'
-import LoginForm from '../components/LoginForm.js'
+import LoginForm from '../components/forms/LoginForm.js'
 import validator from 'validator'
 import { login } from '../actions/auth.js'
 
