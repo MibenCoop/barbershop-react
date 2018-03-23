@@ -1,0 +1,41 @@
+.offer { 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3% 15%;
+}
+.offer__question {
+    align-self: center;
+    font-size: 1.4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.offer__pictures {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6%;
+}
+.offer__pictures-round {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(157, 172, 173);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.offer__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.articles {
+    display: flex;
+    justify-content: space-evenly;
+}
+.articles-left, .articles-right {
+    width: 40%;
+}

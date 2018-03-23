@@ -1,0 +1,29 @@
+footer {
+    background-color: #1baf5d;
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* bottom: -1px; */
+}
+a {
+    color: white;
+    text-decoration: none;
+
+}
+.footer {
+    margin: 3% 15% 1% 15%;
+}
+.footer__nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+.nav__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+.copyright {
+    text-align: center;
+    color: white;
+}

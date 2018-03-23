@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import React from 'react';
 import '../App.css'
 import { logout, getUserCredentials } from '../actions/auth.js';
 import  Header  from '../components/Header'
 import  Background  from '../components/Background'
-
+import  Info  from '../components/Info'
+import  Offer  from '../components/Offer'
+import  Footer  from '../components/Footer'
 
 const HomePage = (props) => {
 
@@ -16,18 +17,9 @@ const HomePage = (props) => {
         <div>
             <Header />
             <Background />
-            <h1>HomePage</h1>
-            <span className="username">My username:</span>
-            <div>My login: {state.email}</div>
-            { isAuthenticated ?  
-                (<div>
-                        <button onClick={() => logout()}>Logout</button>
-                        <Link to="/dashboard">My cabinet</Link>
-                </div>) :
-                (<div>
-                        <Link to="/login">Login</Link> or <Link to="/signup">Signup </Link>
-                </div>) 
-            }
+            <Info />
+            <Offer />
+            <Footer />
         </div>
     );
 }
