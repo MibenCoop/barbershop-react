@@ -7,6 +7,9 @@
 .authorization {
     margin-left: 81%;
 }
+.logo {
+    align-self: center;
+}
 .login, .signup {
     padding: 12%;
 }
@@ -15,3 +18,23 @@
     text-decoration: none;
     color: black;
 }
+.logout__button {
+    width: 100%;
+    border: 0;
+    padding: 9px;
+    font-size: 1.2em;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+.registered {
+    margin-left: 78%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  .dashboard {
+      color: black;
+      font-size: 1.2em;
+      padding: 9px;
+  }
