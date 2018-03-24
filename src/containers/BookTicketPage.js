@@ -40,14 +40,12 @@ class BookTicketPage extends Component {
         if (+new Date(fullDate) < +new Date()) {
             errors.global = "Invalid date or time";
         }
-        // if (validator.toDate(data.date) === null) console.log("data error");
         return errors;
     }
 
     render() {
         return (
             <div> 
-                Blank the form
                 <TicketForm 
                     submit={this.onSubmit}
                     change={this.onChange}

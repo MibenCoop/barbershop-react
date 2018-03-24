@@ -13,6 +13,7 @@ import '../../styles/LoginForm.css'
                         Email:
                     </label>
                     <input 
+                        required 
                         onChange={change}
                         placeholder="email@email.ru" 
                         type="email" name="email" 
@@ -23,6 +24,7 @@ import '../../styles/LoginForm.css'
                         Password:
                     </label>
                     <input 
+                        required 
                         onChange={change}
                         placeholder=" " 
                         type="password" name="password" 

@@ -2,15 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import InlineError from '../messages/InlineError.js'
 import BlockError from '../messages/BlockError.js'
-
+import '../../styles/LoginForm.css'
 const TicketForm = (props) => {
     const { ticket, submit, change, errors } = props;
+
+    //Validate for date time
+    const date = new Date();
+    const reqMonth = date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1); 
+    const reqDay = date.getDate() < 9 ? "0" + date.getDate() : date.getDate(); 
+    const reqDate = (date.getFullYear() + "-" + reqMonth + "-" + reqDay);
+
     return(
-        <form onSubmit = {submit}>
+        <form className="form" onSubmit = {submit}>
             <label htmlFor="date">
-                date:
+                Choose date:
             </label>
-            <input 
+            <input
+                required 
+                min = {reqDate}
                 type="date" 
                 name="date" 
                 value={ticket.date} 
@@ -18,9 +27,12 @@ const TicketForm = (props) => {
             />
             <InlineError error={errors.date} /><br/>
             <label htmlFor="time">
-                time:
+                Choose time:
             </label>
-            <input 
+            <input
+                required 
+                min = "09:00"
+                max = "20:00"
                 type="time"
                 name="time"
                 value={ticket.time}

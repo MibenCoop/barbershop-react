@@ -14,7 +14,8 @@ import {Link} from 'react-router-dom'
                     <label htmlFor="email">
                         Email:
                     </label>
-                    <input 
+                    <input
+                        required 
                         onChange={change}
                         placeholder="example@example@.com" 
                         type="email" name="email" 
@@ -24,7 +25,8 @@ import {Link} from 'react-router-dom'
                     <label htmlFor="username">
                         Username:
                     </label>
-                    <input 
+                    <input
+                        required 
                         onChange={change}
                         placeholder="user" 
                         type="username" name="username" 
@@ -34,7 +36,8 @@ import {Link} from 'react-router-dom'
                     <label htmlFor="password">
                         Password:
                     </label>
-                    <input 
+                    <input
+                        required 
                         onChange={change}
                         placeholder=" " 
                         type="password" name="password" 

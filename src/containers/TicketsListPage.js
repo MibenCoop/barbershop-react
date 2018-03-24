@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import TicketItem from '../components/TicketItem'
 import { deleteTicket } from '../actions/bookTickets.js'
+import '../styles/TicketList.css'
 
 class TicketsListPage extends Component{
 
@@ -36,11 +37,11 @@ class TicketsListPage extends Component{
 
         return (
             <div>
-                <span>Upcoming events</span>
+                <span>Запланированные консультации</span>
                 <ul>    
                     {ticketFutureItems}
                 </ul>
-                <span>Past events</span>
+                <span>Прошедшие консультации</span>
                 <ul>    
                     {ticketPastItems}
                 </ul>

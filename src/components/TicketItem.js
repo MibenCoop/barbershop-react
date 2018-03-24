@@ -3,15 +3,14 @@ const TicketItem = ( props) => {
  	const { value, deleteItem } = props;
  	return (
  		<li>
- 			<span>{value.date} : {value.time}</span>
- 			<button 
- 				onClick={() => { 
-					 deleteItem(value._id);
-					 }
-				}
- 			>
- 				Delete
- 			</button>
+ 			<p>Дата: {value.date}</p>
+			<p>Время: {value.time}</p>
+			{+new Date(value.date + " " + value.time) > new Date() ? (
+ 			<button onClick={() => deleteItem(value._id)}>
+				Отменить
+			</button>
+			) : (<span></span>) }
+
  		</li>
  	);
 } 

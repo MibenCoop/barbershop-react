@@ -3,7 +3,6 @@ import '../App.css'
 import  Background  from '../components/Background'
 import  Info  from '../components/Info'
 import  Offer  from '../components/Offer'
-import  Footer  from '../components/Footer'
 
 const HomePage = () => {
 
@@ -14,7 +13,6 @@ const HomePage = () => {
             <Background />
             <Info />
             <Offer />
-            <Footer />
         </div>
     );
 }

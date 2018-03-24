@@ -1,0 +1,15 @@
+.dashboard {
+    margin: 0% 1%;
+} 
+.dashboard__link {
+    color: black;
+    text-decoration: none;
+    font-size: 1.6em;   
+}
+.dashboard__info {
+    width: 40%;
+    font-size: 1.2em;
+}
+.dashboard__tickets {
+    margin-top: 3%;
+}

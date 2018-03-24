@@ -13,6 +13,8 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from "redux-devtools-extension";
 
+//For working footer
+document.getElementById('root').style.height = "100%";
 
 const store = createStore(
     rootReducer,

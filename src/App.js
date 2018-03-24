@@ -10,21 +10,27 @@ import { logout, getUserCredentials } from './actions/auth.js';
 
 import PropTypes from 'prop-types';
 import  Header  from './components/Header'
+import  Footer  from './components/Footer'
 
 
 class App extends Component {
   render() {
     const {isAuthenticated, getUserData, logout, state, location } = this.props;
-    console.log('isA', isAuthenticated);
     getUserData();
     return (
-      <div>
-        <Header logout={logout} isAuthenticated={isAuthenticated}/>        
-        <Route location={location} path="/" exact component={HomePage}> HomePage </Route>
-        <Route location={location} path="/login" exact component={LoginPage}>Login</Route>
-        <Route location={location} path="/dashboard" exact component={DashboardPage}> Signup </Route>
-        <Route location={location} path="/bookTicket" exact component={BookTicketPage}> Book ticket  </Route>
-        <Route location={location} path="/signup" exact component={SignupPage}> Signup </Route>
+      <div className = "app">
+        <div className = "app__content">
+          <Header logout={logout} isAuthenticated={isAuthenticated}/>         
+                       
+          <Route location={location} path="/" exact component={HomePage}> HomePage </Route>
+          <Route location={location} path="/login" exact component={LoginPage}>Login</Route>
+          <Route location={location} path="/dashboard" exact component={DashboardPage}> Signup </Route>
+          <Route location={location} path="/bookTicket" exact component={BookTicketPage}> Book ticket  </Route>
+          <Route location={location} path="/signup" exact component={SignupPage}> Signup </Route>
+        </div>
+        <div className = "app__footer">
+          <Footer />
+        </div>
       </div>
     );
   }
