@@ -3,15 +3,24 @@ import { Link } from 'react-router-dom'
 import '../styles/Header.css';
 
 const Header = (props) => {
-    const { isAuthenticated, logout } = props;
+    const { isAuthenticated, logout, history } = props;
+    console.log('history', props.history);
     return(
         <header>
             <section className="header">
-                <Link className="logo" to="/">SportBet</Link>
+                <Link className="logo" to="/">СпортБет</Link>
                 { isAuthenticated ? (
 				<div className="authorization">                    
                     <Link className="authorization__dashboard" to="/dashboard">Личный кабинет</Link>
-                    <button className="logout__button" onClick={() => logout()}>Выйти</button>                    
+                    <button 
+                        className="logout__button" 
+                        onClick={() => { 
+                            logout();
+                            history.push('/');
+                        }}
+                    >
+                        Выйти
+                    </button>                    
 				</div>
                     
                 ) : (

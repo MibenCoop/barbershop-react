@@ -10,7 +10,7 @@ import '../../styles/LoginForm.css'
             <div className="form">
                 <form className="login-form" onSubmit={submit}>
                     <label htmlFor="email">
-                        Email:
+                        Почта:
                     </label>
                     <input 
                         required 
@@ -21,7 +21,7 @@ import '../../styles/LoginForm.css'
                     />
                     <InlineError error={errors.email} /><br/>
                     <label htmlFor="password">
-                        Password:
+                        Пароль:
                     </label>
                     <input 
                         required 
@@ -31,9 +31,9 @@ import '../../styles/LoginForm.css'
                         value={user.password}
                     />
                     <InlineError error={errors.password} /><br/>
-                    <button>LOGIN</button>
-                    <p className="message">Not registered? 
-                    <Link to="/signup">Create an account</Link>
+                    <button>Войти</button>
+                    <p className="message">Не зарегистрированы? 
+                    <Link to="/signup">Создать аккаунт</Link>
                     </p>
                     <BlockError error={errors.global} />
                 </form>    

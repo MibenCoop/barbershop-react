@@ -15,7 +15,7 @@ const TicketForm = (props) => {
     return(
         <form className="form" onSubmit = {submit}>
             <label htmlFor="date">
-                Choose date:
+                Выберите дату:
             </label>
             <input
                 required 
@@ -27,7 +27,7 @@ const TicketForm = (props) => {
             />
             <InlineError error={errors.date} /><br/>
             <label htmlFor="time">
-                Choose time:
+                Выберите время:
             </label>
             <input
                 required 
@@ -39,7 +39,7 @@ const TicketForm = (props) => {
                 onChange={change} 
             />
             <InlineError error={errors.time} /><br/>
-            <button>Submit</button>
+            <button>Отправить</button>
             <BlockError error={errors.global} />
         </form>
     );

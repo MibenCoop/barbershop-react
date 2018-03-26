@@ -1,24 +1,24 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 import decode from "jwt-decode";
-import rootReducer from './rootReducer';
-import App from './App';
-import setAuthHeader from './utils/setAuthHeader.js'
-import { userLoggedIn } from './actions/auth.js'
 
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from "redux-devtools-extension";
+import App from './App';
+import rootReducer from './rootReducer';
+import { userLoggedIn } from './actions/auth.js'
+import setAuthHeader from './utils/setAuthHeader.js'
+
 
 //For working footer
 document.getElementById('root').style.height = "100%";
 
 const store = createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware(thunk))
+    applyMiddleware(thunk)
 )
 
 if (localStorage.barbershopJWT) {

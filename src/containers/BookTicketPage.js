@@ -1,16 +1,19 @@
 import React, {Component} from 'react'
-import TicketForm from '../components/forms/TicketForm'
 import { connect } from 'react-redux'
-import { bookTicket } from '../actions/bookTickets'
 import PropTypes from 'prop-types'
+import TicketForm from '../components/forms/TicketForm'
+import { bookTicket } from '../actions/bookTickets'
 
 class BookTicketPage extends Component {
-    state = {
-        data: {
-            date: {},
-            time: {}
-        }, 
-        errors: {}
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {
+                date: {},
+                time: {}
+            }, 
+            errors: {}
+        };
     }
 
     onSubmit = (event) => {
@@ -33,10 +36,9 @@ class BookTicketPage extends Component {
 
     validate = (data) => {
         const errors = {};
-        if (Object.keys(data.date).length === 0) errors.date = "Date is incorrect";
-        if (Object.keys(data.time).length === 0) errors.time = "Time is incorrect";
+        if (Object.keys(data.date).length === 0) errors.date = "Некорректная дата";
+        if (Object.keys(data.time).length === 0) errors.time = "Некорректное время";
         const fullDate = data.date + " " + data.time;
-        //TODO Maybe do more beatifull and reliable validate for date
         if (+new Date(fullDate) < +new Date()) {
             errors.global = "Invalid date or time";
         }

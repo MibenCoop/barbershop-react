@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
-// import TicketForm from '../forms/TicketForm'
-import { connect } from 'react-redux'
-// import { login } from '../../actions/auth'
 import { Link} from 'react-router-dom'
-import { getTickets } from "../actions/bookTickets.js";
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { getTickets } from "../actions/bookTickets.js";
 import TicketsListPage from './TicketsListPage.js'
 import '../styles/Dashboard.css'
 class DashboardPage extends Component {
+    constructor(props) {
+        super(props);
+    }
     componentDidMount = () => {
         const { getTickets } = this.props;
         getTickets();
@@ -33,6 +34,7 @@ DashboardPage.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func.isRequired
     }).isRequired,
+    getTickets: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({

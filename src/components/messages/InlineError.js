@@ -6,7 +6,6 @@ const styles = {
 		padding: "3%"
 	}
 }
-//TODO Styles instead <br>
 const InlineError = ({error}) => (
 		<span style={{ color: "red", margin: "3%"}}>{ error } </span>
 );

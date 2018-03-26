@@ -12,7 +12,7 @@ import {Link} from 'react-router-dom'
             <div className="form">
                 <form className="login-form" onSubmit={submit}>
                     <label htmlFor="email">
-                        Email:
+                        Почта:
                     </label>
                     <input
                         required 
@@ -23,7 +23,7 @@ import {Link} from 'react-router-dom'
                     />
                     <InlineError error={errors.email}/><br/>
                     <label htmlFor="username">
-                        Username:
+                        Имя пользователя:
                     </label>
                     <input
                         required 
@@ -34,7 +34,7 @@ import {Link} from 'react-router-dom'
                     />
                     <InlineError error={errors.username}/><br/>
                     <label htmlFor="password">
-                        Password:
+                        Пароль:
                     </label>
                     <input
                         required 
@@ -44,10 +44,10 @@ import {Link} from 'react-router-dom'
                         value={user.password}
                     />
                     <InlineError error={errors.password}/><br/>
-                    <button>REGISTER</button>
+                    <button>Зарегистрироваться</button>
                     <p className="message">
-                    Have accout? 
-                    <Link to="/login">Login in account</Link>
+                    Есть аккаунт? 
+                    <Link to="/login">Войти в аккаунт</Link>
                     </p>
                     <BlockError error={errors.global}/>
                 </form>  

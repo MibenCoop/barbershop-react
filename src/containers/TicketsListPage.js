@@ -6,7 +6,9 @@ import { deleteTicket } from '../actions/bookTickets.js'
 import '../styles/TicketList.css'
 
 class TicketsListPage extends Component{
-
+    constructor(props) {
+        super(props);
+    }
     renderItems(tickets, compareFunc) {
         const ticketItems = tickets
             .filter((ticket) => compareFunc(ticket.date, ticket.time))
@@ -22,7 +24,7 @@ class TicketsListPage extends Component{
             );
         return ticketItems;
     }
-    compareTicketsData(date, time) {
+    compareFutureTicketsData(date, time) {
         let fullDate = date + " " + time;
         return ( +new Date(fullDate) > new Date() ) ? true : false
     }
@@ -32,7 +34,7 @@ class TicketsListPage extends Component{
     }
     render() {
         const { tickets } = this.props;
-        const ticketFutureItems = this.renderItems(tickets, this.compareTicketsData)
+        const ticketFutureItems = this.renderItems(tickets, this.compareFutureTicketsData)
         const ticketPastItems = this.renderItems(tickets, this.comparePastTicketsData);
 
         return (
@@ -59,12 +61,15 @@ TicketsListPage.propTypes = {
           userId: PropTypes.string.isRequired
         }).isRequired
     ).isRequired,
+    deleteTicket: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     tickets: state.ticket
 })
 
+const mapDispatchToProps = dispatch => ({
+    deleteTicket: (id) => dispatch(deleteTicket(id))
+})
 
-
-export default connect(mapStateToProps, {deleteTicket})(TicketsListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(TicketsListPage);
