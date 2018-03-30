@@ -8,7 +8,9 @@ const TicketForm = (props) => {
     const selectMaster = masters
         .map(master => {
                 return (
-                    <option value={master.fullName}>{master.fullName}</option>
+                    <option
+                        key = {master._id}
+                        value={master.fullName}>{master.fullName}</option>
                 );
             }
         );

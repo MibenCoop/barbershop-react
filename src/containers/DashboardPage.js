@@ -3,6 +3,8 @@ import { Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getTickets } from "../actions/bookTickets.js";
+import { getMasters } from '../actions/getMasters.js';
+
 import TicketsListPage from './TicketsListPage.js'
 import '../styles/Dashboard.css'
 class DashboardPage extends Component {
@@ -11,6 +13,8 @@ class DashboardPage extends Component {
     }
     componentDidMount = () => {
         const { getTickets } = this.props;
+        const { getMasters } = this.props;
+        getMasters();
         getTickets();
     }
     render() {
@@ -23,7 +27,7 @@ class DashboardPage extends Component {
                     Кликнете, чтобы выбрать дату и время для консультации
                 </Link>
                 <div className = "dashboard__tickets">
-                    <TicketsListPage />
+                    <TicketsListPage/>
                 </div>
             </div>
         );
@@ -34,15 +38,17 @@ DashboardPage.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func.isRequired
     }).isRequired,
-    getTickets: PropTypes.func.isRequired
+    getTickets: PropTypes.func.isRequired,
+    getMasters: PropTypes.func.isRequired,
+    tickets: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = state => ({
     tickets: state.ticket,
-    user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
-    getTickets: () => dispatch(getTickets())
+    getTickets: () => dispatch(getTickets()),
+    getMasters: () => dispatch(getMasters())
 })
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
