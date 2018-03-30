@@ -11,10 +11,13 @@ export default {
   	bookTickets: data => 
   		axios.post('/api/tickets', {data}).then(res => res.data.ticket),
     deleteTicket: id => {
-      console.log('id',id)
       return axios.post('api/tickets/delete', {id}).then(res => res.data.id)
     },
     getTickets: () => 
       axios.get('api/tickets').then(res => res.data.tickets)
+  },
+  masters: {
+    getMasters: () => 
+      axios.get('api/masters').then(res => res.data.masters)
   }
 };

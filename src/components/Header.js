@@ -4,7 +4,6 @@ import '../styles/Header.css';
 
 const Header = (props) => {
     const { isAuthenticated, logout, history } = props;
-    console.log('history', props.history);
     return(
         <header>
             <section className="header">

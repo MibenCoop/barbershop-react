@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 
  const SignupForm = (props) => {
     const { user, change, submit, errors } = props;
-    console.log('user', user);
 
     return(
         <div className="signup-page">

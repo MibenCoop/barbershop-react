@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import TicketForm from '../components/forms/TicketForm'
 import { bookTicket } from '../actions/bookTickets'
+import { getMasters } from '../actions/getMasters.js';
 
 class BookTicketPage extends Component {
     constructor(props) {
@@ -10,12 +11,16 @@ class BookTicketPage extends Component {
         this.state = {
             data: {
                 date: {},
-                time: {}
+                time: {},
+                master: {}
             }, 
             errors: {}
         };
     }
-
+    componentDidMount = () => {
+        const { getMasters } = this.props;
+        getMasters();
+    }
     onSubmit = (event) => {
         const { bookTicket } = this.props;
         event.preventDefault();
@@ -49,6 +54,7 @@ class BookTicketPage extends Component {
         return (
             <div> 
                 <TicketForm 
+                    masters = {this.props.masters}
                     submit={this.onSubmit}
                     change={this.onChange}
                     ticket={this.state.data}
@@ -66,4 +72,12 @@ BookTicketPage.propTypes = {
     bookTicket: PropTypes.func.isRequired,
 }
 
-export default connect(null, {bookTicket})(BookTicketPage);
+const mapDispatchToProps = dispatch => ({
+    bookTicket: (data) => dispatch(bookTicket(data)),
+    getMasters: () => dispatch(getMasters())
+})
+
+const mapStateToProps = state => ({
+    masters: state.master
+})
+export default connect(mapStateToProps, mapDispatchToProps)(BookTicketPage);

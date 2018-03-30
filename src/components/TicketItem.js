@@ -5,6 +5,7 @@ const TicketItem = ( props) => {
  		<li>
  			<p>Дата: {value.date}</p>
 			<p>Время: {value.time}</p>
+			<p>Консультант: {value.master}</p>
 			{+new Date(value.date + " " + value.time) > new Date() ? (
  			<button onClick={() => deleteItem(value._id)}>
 				Отменить

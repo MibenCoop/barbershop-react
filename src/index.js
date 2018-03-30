@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from "redux-devtools-extension";
 import registerServiceWorker from './registerServiceWorker';
 import decode from "jwt-decode";
 
@@ -18,16 +19,16 @@ document.getElementById('root').style.height = "100%";
 
 const store = createStore(
     rootReducer,
-    applyMiddleware(thunk)
+    composeWithDevTools(applyMiddleware(thunk))
 )
 
-if (localStorage.barbershopJWT) {
-    const payload = decode(localStorage.barbershopJWT);
+if (localStorage.sportbetJWT) {
+    const payload = decode(localStorage.sportbetJWT);
     const user = { 
-    	token: localStorage.barbershopJWT,
+    	token: localStorage.sportbetJWT,
     	email: payload.email
     };
-    setAuthHeader(localStorage.barbershopJWT);
+    setAuthHeader(localStorage.sportbetJWT);
     store.dispatch(userLoggedIn(user));
 }
 ReactDOM.render( 

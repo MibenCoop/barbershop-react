@@ -4,8 +4,14 @@ import InlineError from '../messages/InlineError.js'
 import BlockError from '../messages/BlockError.js'
 import '../../styles/LoginForm.css'
 const TicketForm = (props) => {
-    const { ticket, submit, change, errors } = props;
-
+    const { ticket, submit, change, errors, masters } = props;
+    const selectMaster = masters
+        .map(master => {
+                return (
+                    <option value={master.fullName}>{master.fullName}</option>
+                );
+            }
+        );
     //Validate for date time
     const date = new Date();
     const reqMonth = date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1); 
@@ -14,6 +20,12 @@ const TicketForm = (props) => {
 
     return(
         <form className="form" onSubmit = {submit}>
+            <label htmlFor="master">
+                Выберите консультанта:
+            </label>
+            <select name="master" onChange={change} >
+                {selectMaster}
+            </select>
             <label htmlFor="date">
                 Выберите дату:
             </label>

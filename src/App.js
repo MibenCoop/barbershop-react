@@ -17,8 +17,7 @@ class App extends Component {
     super(props);
   }
   render() {
-    console.log('props', this.props);
-    const {isAuthenticated, getUserData, logout, state, location } = this.props;
+    const {isAuthenticated, getUserData, logout, location } = this.props;
     getUserData();
     return (
       <div className = "app">
