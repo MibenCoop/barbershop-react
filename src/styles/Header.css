@@ -1,38 +1,28 @@
 .header {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
     background-color: rgb(255, 255, 255);
     padding: 1%;
-    
 }
 .logo {
     align-self: center;
+    font-size: 1.2em;
 }
 .login, .signup {
     padding: 9px;
 }
-.signup, .login, .logo  {
-    font-size: 1.2em;
+.signup, .login, .logo, .authorization__dashboard, .logout__button  {
     text-decoration: none;
     color: black;
 }
 .logout__button {
-    width: 100%;
     border: 0;
-    font-size: 1.2em;
-    color: black;
     background-color: white;
     cursor: pointer;
 }
 .authorization {
-    margin-left: 60%;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .authorization__dashboard {
-    color: black;
     padding: 0% 3%;
-    
-    font-size: 1.2em;
 }

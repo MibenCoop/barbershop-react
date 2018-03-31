@@ -6,11 +6,9 @@ import '../styles/UserSettings.css'
 class UserSettingsPage extends Component {
     constructor(props) {
         super(props);
-        console.log('props.user',props.user)
     }
     render() {
         const { user } = this.props;
-        console.log('this.props',this.props)
         return(
             <div className="settings">
                 <p><b>Почта:</b> {user.email}</p>

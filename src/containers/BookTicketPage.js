@@ -40,7 +40,7 @@ class BookTicketPage extends Component {
         if (Object.keys(data.time).length === 0) errors.time = "Некорректное время";
         const fullDate = data.date + " " + data.time;
         if (+new Date(fullDate) < +new Date()) {
-            errors.global = "Invalid date or time";
+            errors.global = "Некорректная дата";
         }
         return errors;
     }

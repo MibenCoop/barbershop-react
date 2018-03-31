@@ -30,6 +30,5 @@ export const getUserData = () => dispatch => api.user.getUserCredentials()
 
 export const changePassword = passwords => dispatch => api.user.changePassword(passwords)
     .then((user) => {
-        console.log('user',user)
         return dispatch(userLoggedIn(user))
     })
