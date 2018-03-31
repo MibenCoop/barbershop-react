@@ -5,7 +5,11 @@ export default {
     login: credentials =>
       axios.post("/api/auth", { credentials }).then(res => res.data.user),
     signup: user =>
-      axios.post("/api/users", { user }).then(res => res.data.user)
+      axios.post("/api/users", { user }).then(res => res.data.user),
+    getUserCredentials: () => 
+      axios.get("api/users").then(res => res.data.user),
+    changePassword: passwords => 
+      axios.post("api/users/changePassword", {passwords}).then(res => res.data.user)
   },
   tickets: {
   	bookTickets: data => 

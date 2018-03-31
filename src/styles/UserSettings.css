@@ -1,0 +1,11 @@
+.settings {
+    font-size: 1.4em;
+    margin: 3%;
+}
+.settings__password {
+    font-family: "Roboto", sans-serif;
+    background: gray;
+    border: 0;
+    padding: 9px;
+    color: #FFFFFF;
+  }

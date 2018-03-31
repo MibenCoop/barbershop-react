@@ -26,7 +26,8 @@ if (localStorage.sportbetJWT) {
     const payload = decode(localStorage.sportbetJWT);
     const user = { 
     	token: localStorage.sportbetJWT,
-    	email: payload.email
+        email: payload.email,
+        username: payload.username
     };
     setAuthHeader(localStorage.sportbetJWT);
     store.dispatch(userLoggedIn(user));

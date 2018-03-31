@@ -25,12 +25,14 @@
     cursor: pointer;
 }
 .authorization {
-    margin-left: 75%;
+    margin-left: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .authorization__dashboard {
     color: black;
+    padding: 0% 3%;
+    
     font-size: 1.2em;
 }

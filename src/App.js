@@ -6,11 +6,13 @@ import DashboardPage from './containers/DashboardPage'
 import LoginPage  from "./containers/LoginPage";
 import SignupPage  from "./containers/SignupPage";
 import BookTicketPage  from "./containers/BookTicketPage";
+import UserSettingsPage from './containers/UserSettingsPage';
 import { logout, getUserCredentials } from './actions/auth.js';
 
 import PropTypes from 'prop-types';
 import Header  from './components/Header'
 import Footer  from './components/Footer'
+import ChangePasswordPage from './containers/ChangePasswordPage';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +27,9 @@ class App extends Component {
           <Header logout={logout} history={this.props.history} isAuthenticated={isAuthenticated}/>                      
           <Route location={location} path="/" exact component={HomePage}> HomePage </Route>
           <Route location={location} path="/login" exact component={LoginPage}>Login</Route>
-          <Route location={location} path="/dashboard" exact component={DashboardPage}> Signup </Route>
+          <Route location={location} path="/settings" exact component={UserSettingsPage}>Settings</Route>
+          <Route location={location} path="/changePassword" exact component={ChangePasswordPage}>Settings</Route>
+          <Route location={location} path="/dashboard" exact component={DashboardPage}> Dashboard </Route>
           <Route location={location} path="/bookTicket" exact component={BookTicketPage}> Book ticket  </Route>
           <Route location={location} path="/signup" exact component={SignupPage}> Signup </Route>
         </div>

@@ -10,7 +10,8 @@ const Header = (props) => {
                 <Link className="logo" to="/">СпортБет</Link>
                 { isAuthenticated ? (
 				<div className="authorization">                    
-                    <Link className="authorization__dashboard" to="/dashboard">Личный кабинет</Link>
+                    <Link className="authorization__dashboard" to="/dashboard">Личные консультации</Link>
+                    <Link className="authorization__dashboard" to="/settings">Личный кабинет</Link>
                     <button 
                         className="logout__button" 
                         onClick={() => { 
