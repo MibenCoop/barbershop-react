@@ -1,7 +1,7 @@
 footer {
     background-color: #1baf5d;
 }
-a {
+.footer__link {
     color: white;
     text-decoration: none;
 }

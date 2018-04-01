@@ -32,6 +32,7 @@ if (localStorage.sportbetJWT) {
     setAuthHeader(localStorage.sportbetJWT);
     store.dispatch(userLoggedIn(user));
 }
+
 ReactDOM.render( 
     <BrowserRouter>
         <Provider store={store}>

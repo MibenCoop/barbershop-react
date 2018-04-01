@@ -8,9 +8,6 @@ import { getMasters } from '../actions/getMasters.js';
 import TicketsListPage from './TicketsListPage.js'
 import '../styles/Dashboard.css'
 class DashboardPage extends Component {
-    constructor(props) {
-        super(props);
-    }
     componentDidMount = () => {
         const { getTickets } = this.props;
         const { getMasters } = this.props;
@@ -35,9 +32,6 @@ class DashboardPage extends Component {
 }
  
 DashboardPage.propTypes = {
-    history: PropTypes.shape({
-        push: PropTypes.func.isRequired
-    }).isRequired,
     getTickets: PropTypes.func.isRequired,
     getMasters: PropTypes.func.isRequired,
     tickets: PropTypes.array.isRequired,

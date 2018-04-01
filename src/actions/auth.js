@@ -14,9 +14,9 @@ export const getUserCredentials = () => ({
 });
 export const login = credentials => dispatch => api.user.login(credentials)
     .then(user => {
-    localStorage.sportbetJWT = user.token;
-    setAuthHeader(user.token);
-    dispatch(userLoggedIn(user));
+        localStorage.sportbetJWT = user.token;
+        setAuthHeader(user.token);
+        dispatch(userLoggedIn(user));
     });
 
 export const logout = () => dispatch =>  {

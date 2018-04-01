@@ -24,7 +24,7 @@ class SignupPage extends Component {
         this.setState({ errors });
         if ( Object.keys(errors).length === 0) {
             signup(this.state.data)
-                .then(() => this.props.history.push("/dashboard"))
+                .then(() => this.props.history.push("/"))
                 .catch(err => this.setState({errors: err.response.data.errors}));
         }
     }

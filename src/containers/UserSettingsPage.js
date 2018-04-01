@@ -3,10 +3,8 @@ import {connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { user} from '../actions/auth'
 import '../styles/UserSettings.css'
+
 class UserSettingsPage extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const { user } = this.props;
         return(
@@ -17,7 +15,8 @@ class UserSettingsPage extends Component {
                     onClick = {() => this.props.history.push('/changePassword')}
                     className = "settings__password"
                 >
-                    Сменить пароль</button>
+                    Сменить пароль
+                </button>
             </div>
         );  
     }
@@ -27,6 +26,7 @@ UserSettingsPage.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func.isRequired
     }).isRequired,
+    user: PropTypes.object.isRequired
 }
 
 
@@ -34,7 +34,4 @@ const mapStateToProps = state => ({
     user: state.user
 })
 
-const mapDispatchToProps = dispatch => ({
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserSettingsPage);
+export default connect(mapStateToProps, null)(UserSettingsPage);

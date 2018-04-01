@@ -6,24 +6,20 @@ import { deleteTicket } from '../actions/bookTickets.js'
 import '../styles/TicketList.css'
 
 class TicketsListPage extends Component{
-    constructor(props) {
-        super(props);
-    }
     renderItems(tickets, compareFunc) {
         const ticketItems = tickets
             .filter((ticket) => compareFunc(ticket.date, ticket.time))
-            .map(ticket => {
-                    return (
-                        <TicketItem 
-                            key={String(ticket._id)} 
-                            value={ticket} 
-                            deleteItem = {this.props.deleteTicket}
-                        />
-                    );
-                }
-            );
+            .map(ticket => 
+                    <TicketItem 
+                        key={String(ticket._id)} 
+                        value={ticket} 
+                        deleteItem = {this.props.deleteTicket}
+                    />
+                );
         return ticketItems;
     }
+
+    // TODO Maybe connect in one function
     compareFutureTicketsData(date, time) {
         let fullDate = date + " " + time;
         return ( +new Date(fullDate) > new Date() ) ? true : false
@@ -40,11 +36,11 @@ class TicketsListPage extends Component{
         return (
             <div>
                 <span>Запланированные консультации</span>
-                <ul>    
+                <ul className = "tickets">    
                     {ticketFutureItems}
                 </ul>
                 <span>Прошедшие консультации</span>
-                <ul>    
+                <ul className = "tickets">    
                     {ticketPastItems}
                 </ul>
             </div>

@@ -42,6 +42,10 @@ class ChangePasswordPage extends Component {
 			errors.newPassword = "Пароли не совпадают";
 			errors.newPasswordConfirm = "Пароли не совпадают";
 		}
+		if (data.oldPassword === data.newPassword) {
+			errors.oldPassword = "Пароли совпадают";
+			errors.newPassword = "Пароли совпадают";
+		}
 		return errors;
 	}
 
